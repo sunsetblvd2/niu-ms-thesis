@@ -5,15 +5,39 @@ import matplotlib.pyplot as plt
 import os
 import datetime
 import sensorarray as sa
+import emitter
+import grid
+import wsnManager
+import pdb
 
 
-def loc_target_monte_carlo(N,s_n,s_d,T):
+def loc_target_monte_carlo(montecarlo_N,domain_size,network_size,sample_T,localize,emitter_vis):
 
-    logging.info('>> BEGINNING MC')
+    logging.info('>> Beginning Monte Carlo simulation.')
+    logging.info('>> Settings: ')
+    logging.info('*** Number of iterations        : '+str(montecarlo_N))
+    logging.info('*** Size of domain              : '+str(domain_size))
+    logging.info('*** Size of network             : '+str(network_size))
+    logging.info('*** Number of samples per period: '+str(sample_T))
+    logging.info('*** Localization method         : '+str(localize))
+    logging.info('*** Emitter visual setting      : '+str(emitter_vis))
 
-    for n in range(0,N):
-    
-        logging.info('>> MC'+str(n))
+    for n in range(0,montecarlo_N):
+        
+        logging.info('>> Iteration: '+str(n))
+
+        theta=[25000,0,0]
+        n=2
+        
+        Wsn=wsnManager.WsnManager(domain_size,network_size,sample_T,localize)
+        Emitter=emitter.Isotropic(theta,n)
+
+        if emitter_vis:
+            Emitter.heatmap(Wsn.domain_size)
+
+        Wsn.network.sample(Emitter)
+
+        pdb.set_trace()
 
         s_arr=sa.SensorArray(s_n,s_d)
         s_arr.sample(T)
@@ -27,8 +51,6 @@ def loc_target_monte_carlo(N,s_n,s_d,T):
     ## monte carlo finished
     logging.info('>> END OF MC')
 
-    ## fetch the CRLB where is CRLB call?
-
     return 0
 
 if __name__ == '__main__':
@@ -39,18 +61,40 @@ if __name__ == '__main__':
     logging.basicConfig(filename=logfilename,level=logging.INFO,format='%(message)s')
     logging.getLogger().addHandler(logging.StreamHandler())
 
-    assert(len(sys.argv)==5), 'Incorrect list of arguments.'
+    """
+        Arguments:  montecarlo_N : int
 
-    N=int(sys.argv[1])
-    s_n=int(sys.argv[2]) ## number of sensors in a row
-    s_d=int(sys.argv[3]) ## spacing of sensors in a row
-    T=int(sys.argv[4]) ## number of samples T
+                        Number of iterations in Monte Carlo run.
 
-    logging.info('*** Start ***')
-    logging.info('*** SYS ARGS ***')
-    logging.info('>> Monte carlo runs       N : '+str(N))
-    logging.info('>> Sensor row length    s_n : '+str(s_n))
-    logging.info('>> Sensor row spacing   s_d : '+str(s_d)+' m')
-    logging.info('>> Sampling period        T : '+str(T)+' s')
+                    domain_size : int
 
-    loc_target_monte_carlo(N,s_n,s_d,T)
+                        Size of domain.
+
+                    network_size  : int
+
+                        The number of sensors per row in a square array.
+
+                    sample_T     : int
+
+                        Number of samples per sample period.
+
+                    localize     : str, {'mle','snap'}
+
+                        Localization method.
+
+                    emitter_vis  : bool
+
+                        Visualize the emitter in the domain with a heatmap. True to plot.
+
+    """
+
+    assert(len(sys.argv)==7), 'Incorrect list of arguments.'
+
+    montecarlo_N=int(sys.argv[1])
+    domain_size=int(sys.argv[2])
+    network_size=int(sys.argv[3])
+    sample_T=int(sys.argv[4])
+    localize=str(sys.argv[5])
+    emitter_vis=bool(sys.argv[6])
+    
+    loc_target_monte_carlo(montecarlo_N,domain_size,network_size,sample_T,localize,emitter_vis)
