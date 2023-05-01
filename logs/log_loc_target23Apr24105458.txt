@@ -1,0 +1,20 @@
+>> Beginning Monte Carlo simulation.
+>> Settings: 
+*** Number of iterations        : 1
+*** Size of domain              : 100
+*** Size of network             : 4
+*** Number of samples per period: 1
+*** Localization method         : mle
+*** Emitter visual setting      : True
+>> Iteration: 0
+0 of 100
+10 of 100
+20 of 100
+30 of 100
+40 of 100
+50 of 100
+60 of 100
+70 of 100
+80 of 100
+90 of 100
+%_ESTIMATE:: (49.5, 49.5)

@@ -1,0 +1,78 @@
+>> Beginning Monte Carlo simulation.
+>> Settings: 
+*** Number of iterations        : 100
+*** Emitter_set                 : [1000, 0.0, 0.0, 2.0]
+*** Size of domain              : 60
+*** Size of network             : 6
+*** Number of samples per period: 1
+*** Localization method         : snap
+*** Emitter visual setting      : False
+>> Iteration: 0
+%_ESTIMATE:: (1.5, -0.5)
+>> Iteration: 1
+%_ESTIMATE:: (-6.5, 4.5)
+>> Iteration: 2
+%_ESTIMATE:: (-2.5, 4.5)
+>> Iteration: 3
+%_ESTIMATE:: (-1.5, 2.5)
+>> Iteration: 4
+%_ESTIMATE:: (-6.5, 1.5)
+>> Iteration: 5
+%_ESTIMATE:: (2.5, 1.5)
+>> Iteration: 6
+%_ESTIMATE:: (-8.5, -2.5)
+>> Iteration: 7
+%_ESTIMATE:: (4.5, -2.5)
+>> Iteration: 8
+%_ESTIMATE:: (-3.5, 6.5)
+>> Iteration: 9
+%_ESTIMATE:: (-2.5, -1.5)
+>> Iteration: 10
+%_ESTIMATE:: (-1.5, 3.5)
+>> Iteration: 11
+%_ESTIMATE:: (7.5, -1.5)
+>> Iteration: 12
+%_ESTIMATE:: (-0.5, 1.5)
+>> Iteration: 13
+%_ESTIMATE:: (6.5, -3.5)
+>> Iteration: 14
+%_ESTIMATE:: (4.5, -2.5)
+>> Iteration: 15
+%_ESTIMATE:: (-2.5, -1.5)
+>> Iteration: 16
+%_ESTIMATE:: (-4.5, -1.5)
+>> Iteration: 17
+%_ESTIMATE:: (1.5, -1.5)
+>> Iteration: 18
+%_ESTIMATE:: (3.5, 1.5)
+>> Iteration: 19
+%_ESTIMATE:: (-1.5, -2.5)
+>> Iteration: 20
+%_ESTIMATE:: (-2.5, 4.5)
+>> Iteration: 21
+%_ESTIMATE:: (1.5, 2.5)
+>> Iteration: 22
+%_ESTIMATE:: (-3.5, -7.5)
+>> Iteration: 23
+%_ESTIMATE:: (-7.5, -1.5)
+>> Iteration: 24
+%_ESTIMATE:: (-1.5, 3.5)
+>> Iteration: 25
+%_ESTIMATE:: (2.5, -3.5)
+>> Iteration: 26
+%_ESTIMATE:: (-3.5, -0.5)
+>> Iteration: 27
+%_ESTIMATE:: (-3.5, -7.5)
+>> Iteration: 28
+%_ESTIMATE:: (-0.5, -3.5)
+>> Iteration: 29
+%_ESTIMATE:: (-1.5, 1.5)
+>> Iteration: 30
+%_ESTIMATE:: (-7.5, 2.5)
+>> Iteration: 31
+%_ESTIMATE:: (-1.5, -1.5)
+>> Iteration: 32
+%_ESTIMATE:: (-1.5, -1.5)
+>> Iteration: 33
+%_ESTIMATE:: (-7.5, -5.5)
+>> Iteration: 34
