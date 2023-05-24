@@ -2,8 +2,8 @@ import os
 import numpy as np
 import pdb
 
-
-intensity=np.arange(100,1100,100)
+intensity=np.arange(0,520,20)
+intensity[0]=1
 
 ## monte carlo trials
 ## emitter intensity
@@ -18,5 +18,6 @@ intensity=np.arange(100,1100,100)
 
 for P_0 in intensity:
 
-    os.system('python loc_target.py 100 '+str(P_0)+' 0 0 2 60 6 1 mle 0')
+    os.system('python localization_montecarlo.py 100 '+str(P_0)+' 0 0 2 60 6 1 mle 0')
+    os.system('python localization_montecarlo.py 100 '+str(P_0)+' 0 0 2 60 6 1 snap 0')
 

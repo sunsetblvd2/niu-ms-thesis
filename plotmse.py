@@ -97,11 +97,17 @@ def plot():
         x2_data.append(trial['theta'][0])
         y2_data.append(trial['rmse_y'])
 
-    axs[0].plot(x1_data,y1_data,'r--')
-    axs[1].plot(x2_data,y2_data,'r--')
+    axs[0].plot(x1_data,y1_data)
+    axs[1].plot(x2_data,y2_data)
 
     axs[0].set_ylim(0,max(y1_data)*1.5)
     axs[1].set_ylim(0,max(y2_data)*1.5)
+
+    axs[0].set_xlabel('Signal Intensity')
+    axs[1].set_xlabel('Signal Intensity')
+
+    axs[0].set_ylabel('x-coordinate RMSE')
+    axs[1].set_ylabel('y-coordinate RMSE')
 
     plt.tight_layout()
     plt.show()
