@@ -294,9 +294,6 @@ class WsnManager:
                                 
                                 self.le_matrix[i,j]=sum_outer
 
-                            if i % 10 == 0:
-                                logging.info(str(i)+' of '+str(cells.size))
-
                         le_coords=np.unravel_index(np.argmax(self.le_matrix,axis=None),self.le_matrix.shape)
                         self.estimate=(cells[le_coords[0]],cells[le_coords[1]])
 
@@ -333,8 +330,6 @@ class WsnManager:
                                 return False
 
                         for i,sensor in enumerate(self.centralPcr.network.sensors):
-
-                            logging.info('Sensor '+str(i)+' of '+str(len(self.centralPcr.network.sensors)))
 
                             roc= ( emitter_actual.P_0 / sensor.eta ) ** (1 / emitter_actual.n)
 
