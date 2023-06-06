@@ -1,0 +1,19 @@
+>> Beginning Monte Carlo simulation.
+>> Settings: 
+*** Number of iterations        : 100
+*** Emitter_set                 : [200, 0.0, 0.0, 3.8000000000000016]
+*** Size of domain              : 60
+*** Size of network             : 6
+*** Number of samples per period: 1
+*** Additive noise power        : 1.0
+*** Localization method         : mle
+*** Emitter visual setting      : False
+>> Iteration: 0
+%_ESTIMATE:: (-5.5, 27.5)
+>> Iteration: 1
+%_ESTIMATE:: (-15.5, 27.5)
+>> Iteration: 2
+%_ESTIMATE:: (5.5, -27.5)
+>> Iteration: 3
+%_ESTIMATE:: (-15.5, 5.5)
+>> Iteration: 4

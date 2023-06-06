@@ -1,0 +1,30 @@
+>> Beginning Monte Carlo simulation.
+>> Settings: 
+*** Number of iterations        : 10
+*** Emitter_set                 : [200, 0.0, 0.0, 5.0]
+*** Size of domain              : 60
+*** Size of network             : 6
+*** Number of samples per period: 1
+*** Additive noise power        : 1.0
+*** Localization method         : snap
+*** Emitter visual setting      : False
+>> Iteration: 0
+%_ESTIMATE:: (-27.5, -5.5)
+>> Iteration: 1
+%_ESTIMATE:: (-17.5, -5.5)
+>> Iteration: 2
+%_ESTIMATE:: (2.5, 24.5)
+>> Iteration: 3
+%_ESTIMATE:: (-7.5, 14.5)
+>> Iteration: 4
+%_ESTIMATE:: (12.5, 4.5)
+>> Iteration: 5
+%_ESTIMATE:: (2.5, 14.5)
+>> Iteration: 6
+%_ESTIMATE:: (-29.5, -29.5)
+>> Iteration: 7
+%_ESTIMATE:: (22.5, -5.5)
+>> Iteration: 8
+%_ESTIMATE:: (-29.5, -29.5)
+>> Iteration: 9
+%_ESTIMATE:: (-7.5, -15.5)

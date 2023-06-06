@@ -1,0 +1,10 @@
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145713.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145736.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145800.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145823.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145845.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145910.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05145934.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05150001.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05150024.txt
+C:\loc_target\logs\log_mcd_exp_2_iteration_0_mle_23Jun05150050.txt
