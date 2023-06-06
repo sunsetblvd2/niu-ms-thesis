@@ -1,7 +1,0 @@
->> Beginning Monte Carlo simulation.
->> Settings: 
-*** Number of iterations        : 1
-*** Size of domain              : 100
-*** Number of sensors           : 6
-*** Number of samples per period: 1
->> Iteration: 0

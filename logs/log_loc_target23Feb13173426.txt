@@ -1,9 +1,0 @@
-*** Start ***
-*** SYS ARGS ***
-Monte carlo runs       N : 5
-Sensor row length    s_n : 14
-Sensor row spacing   s_d : 20 m
-Sampling period        T : 100 s
->> BEGINNING MC
->> MC0
-*** Initializing sensors ***
