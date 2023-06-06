@@ -11,7 +11,7 @@ import pdb
 # ***********************************************************************
 class WsnManager:
 
-        def __init__(self,domain_size,network_size,sample_T,localize):
+        def __init__(self,domain_size,network_size,sample_T,noise_power,localize):
 
             """
                 Parameters:  domain_size : int
@@ -26,6 +26,10 @@ class WsnManager:
 
                                 The number of samples to collect.
 
+                             noise_power : float
+
+                                Additive noise power.
+
                              localize : str, {'mle', 'snap'}
 
                                 The localization routine to use.
@@ -39,16 +43,17 @@ class WsnManager:
             self.domain_size=domain_size
             self.network_size=network_size
             self.sample_T=sample_T
+            self.noise_power=noise_power
             self.localize=localize
 
-            self.network=self.Network(self.domain_size,self.network_size,self.sample_T,self.localize)
+            self.network=self.Network(self.domain_size,self.network_size,self.sample_T,self.noise_power,self.localize)
 
         # ********************************************************
         # Network class- subclass of WsnManager
         # ********************************************************
         class Network:
 
-            def __init__(self,domain_size,network_size,sample_T,localize):
+            def __init__(self,domain_size,network_size,sample_T,noise_power,localize):
 
                 """
 
@@ -64,6 +69,10 @@ class WsnManager:
 
                                     Number of samples per sample period.
 
+                                 noise_power : float
+
+                                    Additive noise power.
+
                                  localize : str, {'mle', 'snap'}
 
                                     Localization method.
@@ -73,6 +82,7 @@ class WsnManager:
                 self.domain_size=domain_size
                 self.network_size=network_size
                 self.sample_T=sample_T
+                self.noise_power=noise_power
                 self.localize=localize
 
                 self.grid=grid.Grid(self.domain_size,resolution=self.domain_size/self.network_size) # network grid
@@ -84,7 +94,7 @@ class WsnManager:
                     x=self.coords[i,0]
                     y=self.coords[i,1]
                     eta=1.7
-                    sigma=1
+                    sigma=self.noise_power
 
                     self.sensors.append(self.Sensor(x,y,eta,sigma))
 
@@ -201,7 +211,7 @@ class WsnManager:
                             return 0
 
                     a=Emitter.amplitude(self.x,self.y)
-                    w=np.random.default_rng().normal()
+                    w=np.random.default_rng().normal(0,self.sigma)
                     s=a+w
                     self.S.append(s)
                     self.I.append(quantize(s))

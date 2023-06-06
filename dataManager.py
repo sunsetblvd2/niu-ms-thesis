@@ -8,13 +8,17 @@ mpl.style.use('classic')
 
 class DataManager:
 
-    def __init__(self,expname):
+    def __init__(self,expname,variable):
 
         """
         
             Parameters: expname : str
 
                           Experiment name.  
+                        
+                        variable : str
+
+                            Experiment variable.
         
         """
         
@@ -23,6 +27,7 @@ class DataManager:
         self.resultsdir=os.getcwd()+'\\results\\'
         self.expname=expname
         self.expresultspath=self.resultsdir+self.expname
+        self.variable=variable
         self.data=[] # list of DataProcessor objects, 1 for each queue file
 
         self.populate()
@@ -63,7 +68,9 @@ class DataManager:
             
                     log=log_name.rstrip()
             
-                    trial={'theta':np.zeros((3,)),
+                    trial={'P_0':0,
+                           'x_t':0,
+                           'y_t':0,
                            'n':0,
                            'sigma':0,
                            'results':[],
@@ -79,11 +86,16 @@ class DataManager:
                                 temp=temp[1].replace('[','')
                                 temp=temp.replace(']','')
                                 temp=temp.split(',')
+                                
+                                trial['P_0']=float(temp[0])
+                                trial['x_t']=float(temp[1])
+                                trial['y_t']=float(temp[2])
+                                trial['n']=float(temp[3])
                     
-                                theta=[]
-                                for i in range(0,len(temp)-1):
-                    
-                                    theta.append(float(temp[i]))
+                            if '*** Additive noise power' in line:
+                                
+                                temp=line.split(':')
+                                trial['sigma']=float(temp[1])
                     
                             if '%_ESTIMATE' in line:
                                 mc_results_list.append(line.rstrip()
@@ -93,10 +105,6 @@ class DataManager:
                                                .replace(' ','')
                                                .split(','))
                     
-                    trial['theta'][0]=theta[0]
-                    trial['theta'][1]=theta[1]
-                    trial['theta'][2]=theta[2]
-            
                     point_estimates=np.zeros((len(mc_results_list),2))
                     for index,point in enumerate(mc_results_list):
                         point_estimates[index,0]=point[0]
@@ -106,13 +114,10 @@ class DataManager:
                     mse_x_sum=0
                     mse_y_sum=0
             
-                    x_t=theta[1]
-                    y_t=theta[2]
-                    
                     for i in range(0,point_estimates.shape[0]):
                     
-                        mse_x_sum+= ( abs ( point_estimates[i,0] - x_t ) ) ** 2
-                        mse_y_sum+= ( abs ( point_estimates[i,1] - y_t ) ) ** 2
+                        mse_x_sum+= ( abs ( point_estimates[i,0] - trial['x_t'] ) ) ** 2
+                        mse_y_sum+= ( abs ( point_estimates[i,1] - trial['y_t'] ) ) ** 2
                     
                     rmse_x = np.sqrt( ( 1 / point_estimates.shape[0]) * mse_x_sum )
                     rmse_y = np.sqrt( ( 1 / point_estimates.shape[0]) * mse_y_sum )
@@ -154,9 +159,9 @@ class DataManager:
 
             for trial in algo.trials:
 
-                x_x.append(trial['theta'][0])
+                x_x.append(trial[self.variable])
                 y_x.append(trial['rmse_x'])
-                x_y.append(trial['theta'][0])
+                x_y.append(trial[self.variable])
                 y_y.append(trial['rmse_y'])
     
             axs[0].plot(x_x,y_x,'k--',marker=markers[index],label=algo.type)
