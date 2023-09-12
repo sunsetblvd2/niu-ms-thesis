@@ -1,1 +1,1 @@
-Some Python I wrote for my thesis. It is a wireless sensor network and RF transmitter simulator.
+RF positioning system simulator
